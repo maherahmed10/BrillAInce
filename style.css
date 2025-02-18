@@ -200,9 +200,9 @@ button#search-btn:hover {
 }
 
 .wrapper {
-  position: absolute; /* Position the wrapper relative to the nearest positioned ancestor */
-  top: 600px; /* Slightly down from the top */
-  right: 20px; /* Align to the right of the container */
+  position: fixed; /* Fix the position relative to the viewport */
+  bottom: 20px; /* Align to the bottom of the viewport */
+  right: 20px; /* Align to the right of the viewport */
   display: inline-flex; /* Keep the current inline-flex display */
   list-style: none;
   font-family: "Poppins", sans-serif;
