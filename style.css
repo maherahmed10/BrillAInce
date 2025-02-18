@@ -1,0 +1,285 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color:#1c1b1b;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .upload-section {
+    margin-top: -800px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: lightgray;
+}
+
+.upload-section p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.upload-label {
+    color: lightblue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#drop-zone {
+    position: relative;
+    top: 10px; /* Moves it 100px down */
+    width: 300px;
+    height: 150px;
+    border: 2px dashed lightgray;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: lightgray;
+    margin: 0 auto; /* Keeps it horizontally centered */
+    transition: background-color 0.2s ease;
+}
+
+
+
+#drop-zone:hover {
+    background-color: #2a2a2a;
+}
+
+#drop-zone.drag-over {
+    background-color: #444;
+    border-color: lightblue;
+    color: white;
+}
+
+  
+  .search-wrapper {
+    margin: 500px auto; /*moves button up and down*/
+    margin-left: 50px; /* Push it to the right */
+    text-align: center;
+   /* position: relative;
+    top: -200px; /* Moves the entire wrapper upward */
+
+}
+
+input[type="search"] {
+  padding: 10px;
+  font-size: 16px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color:#141313; /* Text color inside the search box */
+  background-color:aliceblue; /* Background color of the search box */
+}
+
+input[type="search"]::placeholder {
+  color: #aaa; /* Light placeholder color */
+}
+
+button#search-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color:blueviolet;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+button#search-btn:hover {
+  background-color:crimson; /* Slightly darker blue on hover */
+}
+  .container{
+    height: 70vh;
+    margin-inline: 1.5rem;
+    display: grid;
+    place-items: center;
+  }
+
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color:gold;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    border-radius: 15px;
+    background: linear-gradient(145deg, #1c1b1b, #171717);
+    box-shadow:  7px 7px 0px #141313,
+                 -7px -7px 0px #201f1f;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  } */
+
+  body.page2{
+    background-color:#1c1b1b;
+  }
+  h1.highlight {
+    color:lightskyblue; /* Changes the text color to yellow */
+    font-family: "Beiruti", sans-serif; /* Apply Beiruti font */
+    font-size: 75px; /* Optional: Make the text size larger */
+    margin: 0; /* Removes default margin */
+    margin-bottom: -200px; /* Pushes the tagline lower */
+    margin-top: 200px;
+
+  }
+
+  /* Page2 specific title styling */
+  .page2 .highlight {
+    color: lightgreen; /* Change to a different color */
+    font-family: "Beiruti", sans-serif; /* Apply Beiruti font */
+    font-size: 60px; /* Different font size */
+    margin-top: 50px; /* Adjust the margin */
+  }
+
+/* Star background container */
+#star-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: visible;
+}
+
+.star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 1;  /* Initial opacity is fully visible */
+  animation: moveStars linear infinite, fadeOut ease-out forwards;  /* Apply both animations */
+  width: 5px;  /* Default size */
+  height: 5px;  /* Default size */
+}
+
+@keyframes moveStars {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+/* Keyframe for fade-out effect */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.message {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  max-width: 70%;
+  font-size: 16px;
+  word-wrap: break-word;
+}
+
+.user-message {
+  background-color: #4CAF50;
+  color: white;
+  align-self: flex-end;
+  text-align: right;
+}
+
+.bot-message {
+  background-color: #555;
+  color: white;
+  align-self: flex-start;
+  text-align: left;
+}
+
+.wrapper {
+  position: absolute; /* Position the wrapper relative to the nearest positioned ancestor */
+  top: 600px; /* Slightly down from the top */
+  right: 20px; /* Align to the right of the container */
+  display: inline-flex; /* Keep the current inline-flex display */
+  list-style: none;
+  font-family: "Poppins", sans-serif;
+}
+
+.wrapper .icon {
+  position: relative;
+  background: #fff;
+  border-radius: 50%;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip {
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  background: #fff;
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #fff;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .tooltip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .facebook:hover,
+.wrapper .facebook:hover .tooltip,
+.wrapper .facebook:hover .tooltip::before {
+  background: #1877f2;
+  color: #fff;
+}
+
+.wrapper .twitter:hover,
+.wrapper .twitter:hover .tooltip,
+.wrapper .twitter:hover .tooltip::before {
+  background: #1da1f2;
+  color: #fff;
+}
+
+.wrapper .instagram:hover,
+.wrapper .instagram:hover .tooltip,
+.wrapper .instagram:hover .tooltip::before {
+  background: #e4405f;
+  color: #fff;
+}
