@@ -41,7 +41,71 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Continuously create stars at a set interval
     setInterval(createStar, 25);
+
+    // Add event listener for the search button
+    const searchButton = document.getElementById('search-btn');
+    searchButton.addEventListener('click', handleUserInput);
     
+    // Add an event listener for the "Enter" key on the search input
+    document.getElementById("search").addEventListener("keypress", (event) => {
+        if (event.key === "Enter") {
+            event.preventDefault(); // Prevent the default form submission behavior
+            document.getElementById("search-btn").click(); // Trigger the search button click logic
+        }
+    });
+    
+    // Function to handle user input and bot response
+    async function handleUserInput() {
+        const searchInput = document.getElementById("search");
+        const chatBox = document.getElementById("star-container"); // Container to display messages
+
+        if (searchInput.value.trim() === "") return; // Prevent empty input
+
+        // Create and display the user's input as a message
+        const userMessage = document.createElement("div");
+        userMessage.className = "message user-message";
+        userMessage.textContent = searchInput.value;
+        chatBox.appendChild(userMessage);
+
+        // Store the user's input and clear the search field
+        const userQuery = searchInput.value;
+        searchInput.value = "";
+
+        // Scroll to the latest message
+        chatBox.scrollTop = chatBox.scrollHeight;
+
+        // Display a loading animation or placeholder for the bot's response
+        const botMessage = document.createElement("div");
+        botMessage.className = "message bot-message";
+        botMessage.textContent = "Thinking...";
+        chatBox.appendChild(botMessage);
+
+        // Send the user query to your server
+        try {
+            const response = await fetch('http://127.0.0.1:5500/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ prompt: userQuery }),
+            });
+
+            const data = await response.json();
+
+            if (data.error) {
+                botMessage.textContent = `Error: ${data.error}`;
+            } else {
+                botMessage.textContent = data.response;
+            }
+        } catch (error) {
+            botMessage.textContent = "Sorry, I couldn't process your request. Please try again.";
+            console.error("Error fetching OpenAI API:", error);
+        }
+
+        // Scroll to the latest message
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
 
     // Check if the drop zone exists before adding event listeners
     const dropZone = document.getElementById('drop-zone');
